@@ -7,8 +7,8 @@ const CACHE_TTL_MS = 5 * 60 * 1000;
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { address: string } }
-) {
+  { params }: { params: Promise<{ address: string }> }
+)
   const { address } = await params;
 
   if (!address) {
