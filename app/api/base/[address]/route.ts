@@ -7,53 +7,32 @@ const CACHE_TTL_MS = 5 * 60 * 1000;
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: Promise<{ address: string }> }
-)
-  const { address } = await params;
+  context: { params: Promise<{ address: string }> }
+) {
+  const { address } = await context.params;
 
   if (!address) {
-    return NextResponse.json(
-      { error: "Wallet address is required" },
-      { status: 400 }
-    );
+    return NextResponse.json({ error: "Wallet address is required" }, { status: 400 });
   }
 
   if (!isAddress(address)) {
-    return NextResponse.json(
-      { error: "Invalid Ethereum address format" },
-      { status: 400 }
-    );
+    return NextResponse.json({ error: "Invalid Ethereum address format" }, { status: 400 });
   }
 
   const cacheKey = address.toLowerCase();
   const cached = cache.get(cacheKey);
 
   if (cached && Date.now() < cached.expiresAt) {
-    return NextResponse.json(cached.data, {
-      headers: { "X-Cache": "HIT" },
-    });
+    return NextResponse.json(cached.data);
   }
 
   try {
     const activity = await getBaseWalletActivity(address);
-
-    cache.set(cacheKey, {
-      data: activity,
-      expiresAt: Date.now() + CACHE_TTL_MS,
-    });
-
-    return NextResponse.json(activity, {
-      headers: { "X-Cache": "MISS" },
-    });
+    cache.set(cacheKey, { data: activity, expiresAt: Date.now() + CACHE_TTL_MS });
+    return NextResponse.json(activity);
   } catch (err: unknown) {
     console.error("Failed to fetch activity for " + address, err);
-
-    const message =
-      err instanceof Error ? err.message : "Failed to fetch wallet activity";
-
-    return NextResponse.json(
-      { error: message },
-      { status: 500 }
-    );
+    const message = err instanceof Error ? err.message : "Failed to fetch wallet activity";
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }
