@@ -74,6 +74,18 @@ export default function Home() {
       }}>
         VIEW AIRDROP PROJECTS →
       </Link>
+      <Link href="/intelligence" style={{
+  textDecoration: "none",
+  color: "#a855f7",
+  fontSize: "11px",
+  letterSpacing: "3px",
+  border: "1px solid #a855f733",
+  padding: "10px 24px",
+  borderRadius: "6px",
+  background: "rgba(168,85,247,0.05)",
+}}>
+  AI INTELLIGENCE →
+</Link>
 
       {/* Activity card */}
       {isConnected && address && (
