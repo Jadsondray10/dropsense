@@ -36,7 +36,7 @@ export const PROJECTS: Project[] = [
         description: "Apply and get accepted into the GenLayer builders program",
         type: "build",
         points: 30,
-        link: "https://genlayer.com/builders",
+        link: "https://portal.genlayer.foundation",
       },
       {
         id: "gl-2",
@@ -44,7 +44,7 @@ export const PROJECTS: Project[] = [
         description: "Deploy at least one intelligent contract on GenLayer testnet",
         type: "testnet",
         points: 25,
-        link: "https://studio.genlayer.com",
+        link: "https://portal.genlayer.foundation",
       },
       {
         id: "gl-3",
@@ -68,7 +68,7 @@ export const PROJECTS: Project[] = [
         description: "Submit a bug report or product feedback via their portal",
         type: "build",
         points: 15,
-        link: "https://genlayer.com/feedback",
+        link: "https://portal.genlayer.foundation",
       },
     ],
   },
@@ -88,7 +88,7 @@ export const PROJECTS: Project[] = [
         description: "Create an account on the Miden testnet",
         type: "testnet",
         points: 20,
-        link: "https://testnet.miden.io",
+        link: "https://playground.miden.xyz",
       },
       {
         id: "mi-2",
@@ -96,7 +96,7 @@ export const PROJECTS: Project[] = [
         description: "Send at least one transaction on Miden testnet",
         type: "testnet",
         points: 20,
-        link: "https://testnet.miden.io",
+        link: "https://playground.miden.xyz",
       },
       {
         id: "mi-3",
@@ -104,7 +104,7 @@ export const PROJECTS: Project[] = [
         description: "Request test tokens from the Miden faucet",
         type: "testnet",
         points: 10,
-        link: "https://faucet.miden.io",
+        link: "https://playground.miden.xyz",
       },
       {
         id: "mi-4",
@@ -131,7 +131,7 @@ export const PROJECTS: Project[] = [
     description: "Circle-backed L1 blockchain on testnet. With Circle's backing and USDC integration, this is one of the highest conviction plays of 2025.",
     probability: 82,
     status: "testnet",
-    website: "https://arc.net",
+    website: "https://arc.network",
     twitter: "https://twitter.com/arcprotocol",
     tasks: [
       {
@@ -140,7 +140,7 @@ export const PROJECTS: Project[] = [
         description: "Sign up and join the Arc L1 testnet",
         type: "testnet",
         points: 25,
-        link: "https://arc.net/testnet",
+        link: "https://arc.network",
       },
       {
         id: "arc-2",
@@ -148,7 +148,7 @@ export const PROJECTS: Project[] = [
         description: "Bridge funds to the Arc testnet",
         type: "bridge",
         points: 20,
-        link: "https://bridge.arc.net",
+        link: "https://arc.network",
       },
       {
         id: "arc-3",
@@ -156,7 +156,7 @@ export const PROJECTS: Project[] = [
         description: "Perform a token swap on Arc testnet",
         type: "swap",
         points: 15,
-        link: "https://app.arc.net/swap",
+        link: "https://arc.network",
       },
       {
         id: "arc-4",
@@ -172,7 +172,7 @@ export const PROJECTS: Project[] = [
         description: "Join the Arc mainnet waitlist",
         type: "social",
         points: 10,
-        link: "https://arc.net/waitlist",
+        link: "https://arc.network",
       },
     ],
   },
