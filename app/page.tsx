@@ -11,118 +11,194 @@ export default function Home() {
   return (
     <div style={{
       minHeight: "100vh",
-      background: "#060a14",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "center",
-      gap: "28px",
-      padding: "32px 16px",
-      fontFamily: "monospace",
-      position: "relative",
-      overflow: "hidden",
+      background: "#f8f9ff",
+      fontFamily: "'Inter', 'Segoe UI', sans-serif",
     }}>
 
-      {/* Background grid */}
+      {/* Top gradient bar */}
       <div style={{
-        position: "fixed",
-        inset: 0,
-        backgroundImage: "linear-gradient(rgba(59,130,246,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.03) 1px, transparent 1px)",
-        backgroundSize: "40px 40px",
-        pointerEvents: "none",
+        height: "4px",
+        background: "linear-gradient(90deg, #7c3aed, #06b6d4)",
       }} />
 
-      {/* Top accent line */}
-      <div style={{
-        position: "fixed",
-        top: 0, left: 0, right: 0,
-        height: "2px",
-        background: "linear-gradient(90deg, transparent, #3b82f6, #00ff9d, transparent)",
-      }} />
-
-      {/* Logo */}
-      <div style={{ textAlign: "center" }}>
-        <div style={{ fontSize: "11px", letterSpacing: "6px", color: "#334155", marginBottom: "12px" }}>
-          INTELLIGENCE FOR AIRDROP HUNTERS
-        </div>
-        <h1 style={{ margin: 0, lineHeight: 1 }}>
-          <span style={{ fontSize: "48px", fontWeight: "700", color: "#3b82f6", letterSpacing: "8px" }}>DROP</span>
-          <span style={{ fontSize: "48px", fontWeight: "700", color: "#00ff9d", letterSpacing: "8px" }}>SENSE</span>
-        </h1>
-        <div style={{ fontSize: "10px", letterSpacing: "4px", color: "#1e3a5f", marginTop: "8px" }}>
-          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-        </div>
-        <div style={{ fontSize: "11px", letterSpacing: "3px", color: "#475569", marginTop: "8px" }}>
-          TRACK · ANALYZE · EARN
-        </div>
-      </div>
-
-      {/* Connect button */}
-      <ConnectButton />
-
-      {/* Projects button */}
-      <Link href="/projects" style={{
-        textDecoration: "none",
-        color: "#00ff9d",
-        fontSize: "11px",
-        letterSpacing: "3px",
-        border: "1px solid #00ff9d33",
-        padding: "10px 24px",
-        borderRadius: "6px",
-        background: "rgba(0,255,157,0.05)",
-        transition: "all 0.2s",
+      {/* Nav */}
+      <nav style={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        padding: "16px 32px",
+        background: "#ffffff",
+        borderBottom: "1px solid #e5e7eb",
+        position: "sticky",
+        top: 0,
+        zIndex: 100,
       }}>
-        VIEW AIRDROP PROJECTS →
-      </Link>
-      <Link href="/intelligence" style={{
-  textDecoration: "none",
-  color: "#a855f7",
-  fontSize: "11px",
-  letterSpacing: "3px",
-  border: "1px solid #a855f733",
-  padding: "10px 24px",
-  borderRadius: "6px",
-  background: "rgba(168,85,247,0.05)",
-}}>
-  AI INTELLIGENCE →
-</Link>
-
-      {/* Activity card */}
-      {isConnected && address && (
-        <BaseActivityCard address={address} />
-      )}
-
-      {!isConnected && (
-        <div style={{
-          border: "1px solid #1e3a5f",
-          borderRadius: "12px",
-          padding: "32px 40px",
-          textAlign: "center",
-          maxWidth: "480px",
-          width: "100%",
-          background: "rgba(10,15,30,0.8)",
-        }}>
-          <div style={{ fontSize: "24px", marginBottom: "12px" }}>⬡</div>
-          <div style={{ color: "#475569", fontSize: "11px", letterSpacing: "2px", lineHeight: 2 }}>
-            CONNECT YOUR WALLET<br/>TO SCAN YOUR BASE ACTIVITY<br/>AND TRACK AIRDROP TASKS
+        <div style={{ display: "flex", alignItems: "center", gap: "32px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+            <div style={{
+              width: "32px", height: "32px",
+              background: "linear-gradient(135deg, #7c3aed, #06b6d4)",
+              borderRadius: "8px",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              color: "white", fontWeight: "700", fontSize: "14px",
+            }}>DS</div>
+            <span style={{ fontWeight: "700", fontSize: "18px", color: "#111827" }}>
+              Drop<span style={{ color: "#7c3aed" }}>Sense</span>
+            </span>
+          </div>
+          <div style={{ display: "flex", gap: "24px" }}>
+            <Link href="/projects" style={{ textDecoration: "none", color: "#6b7280", fontSize: "14px", fontWeight: "500" }}>Projects</Link>
+            <Link href="/intelligence" style={{ textDecoration: "none", color: "#6b7280", fontSize: "14px", fontWeight: "500" }}>Intelligence</Link>
           </div>
         </div>
-      )}
+        <ConnectButton />
+      </nav>
+
+      {/* Hero */}
+      <div style={{
+        maxWidth: "900px",
+        margin: "0 auto",
+        padding: "80px 32px 48px",
+        textAlign: "center",
+      }}>
+        <div style={{
+          display: "inline-flex",
+          alignItems: "center",
+          gap: "8px",
+          background: "linear-gradient(135deg, #ede9fe, #cffafe)",
+          border: "1px solid #c4b5fd",
+          borderRadius: "100px",
+          padding: "6px 16px",
+          marginBottom: "24px",
+        }}>
+          <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#7c3aed" }} />
+          <span style={{ fontSize: "13px", color: "#7c3aed", fontWeight: "600" }}>
+            Built on GenLayer
+          </span>
+        </div>
+
+        <h1 style={{
+          fontSize: "52px",
+          fontWeight: "800",
+          color: "#111827",
+          margin: "0 0 16px",
+          lineHeight: 1.2,
+        }}>
+          Track. Build.{" "}
+          <span style={{
+            background: "linear-gradient(90deg, #7c3aed, #06b6d4)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+          }}>
+            Earn.
+          </span>
+        </h1>
+
+        <p style={{
+          fontSize: "18px",
+          color: "#6b7280",
+          maxWidth: "560px",
+          margin: "0 auto 40px",
+          lineHeight: 1.7,
+        }}>
+          Your Web3 ecosystem dashboard. Track on-chain activity, discover early opportunities, and monitor your builder progress across GenLayer and beyond.
+        </p>
+
+        <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
+          <ConnectButton />
+          <Link href="/projects" style={{
+            textDecoration: "none",
+            background: "linear-gradient(135deg, #7c3aed, #06b6d4)",
+            color: "white",
+            fontSize: "14px",
+            fontWeight: "600",
+            padding: "10px 24px",
+            borderRadius: "8px",
+          }}>
+            Explore Projects →
+          </Link>
+        </div>
+      </div>
+
+      {/* Stats bar */}
+      <div style={{
+        background: "white",
+        borderTop: "1px solid #e5e7eb",
+        borderBottom: "1px solid #e5e7eb",
+        padding: "24px 32px",
+      }}>
+        <div style={{
+          maxWidth: "900px",
+          margin: "0 auto",
+          display: "grid",
+          gridTemplateColumns: "repeat(3, 1fr)",
+          gap: "32px",
+          textAlign: "center",
+        }}>
+          {[
+            { label: "Projects Tracked", value: "3" },
+            { label: "Chains Supported", value: "4" },
+            { label: "Tasks Available", value: "15" },
+          ].map((stat) => (
+            <div key={stat.label}>
+              <div style={{ fontSize: "28px", fontWeight: "800", color: "#7c3aed" }}>{stat.value}</div>
+              <div style={{ fontSize: "13px", color: "#9ca3af", marginTop: "4px" }}>{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Activity card */}
+      <div style={{ maxWidth: "900px", margin: "48px auto", padding: "0 32px" }}>
+        {isConnected && address ? (
+          <div>
+            <h2 style={{ fontSize: "20px", fontWeight: "700", color: "#111827", marginBottom: "16px" }}>
+              Your Base Activity
+            </h2>
+            <BaseActivityCard address={address} />
+          </div>
+        ) : (
+          <div style={{
+            background: "white",
+            border: "1px solid #e5e7eb",
+            borderRadius: "16px",
+            padding: "48px",
+            textAlign: "center",
+            boxShadow: "0 1px 3px rgba(0,0,0,0.05)",
+          }}>
+            <div style={{
+              width: "56px", height: "56px",
+              background: "linear-gradient(135deg, #ede9fe, #cffafe)",
+              borderRadius: "16px",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              margin: "0 auto 16px",
+              fontSize: "24px",
+            }}>⬡</div>
+            <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#111827", margin: "0 0 8px" }}>
+              Connect Your Wallet
+            </h3>
+            <p style={{ fontSize: "14px", color: "#9ca3af", margin: "0 0 24px" }}>
+              Connect to scan your Base chain activity and track your ecosystem progress
+            </p>
+            <ConnectButton />
+          </div>
+        )}
+      </div>
 
       {/* Footer */}
-      <div style={{
-        position: "fixed",
-        bottom: "16px",
+      <footer style={{
+        borderTop: "1px solid #e5e7eb",
+        padding: "24px 32px",
         textAlign: "center",
-        fontSize: "9px",
-        letterSpacing: "2px",
-        color: "#1e3a5f",
+        background: "white",
       }}>
-        BUILT ON GENLAYER · BY{" "}
-        <a href="https://twitter.com/jadsondrex" target="_blank" style={{ color: "#3b82f6", textDecoration: "none" }}>
-          JADSONDREX
-        </a>
-      </div>
+        <p style={{ fontSize: "13px", color: "#9ca3af", margin: 0 }}>
+          Built on GenLayer · By{" "}
+          <a href="https://twitter.com/jadsondrex" target="_blank" style={{ color: "#7c3aed", textDecoration: "none", fontWeight: "600" }}>
+            Jadsondrex
+          </a>
+        </p>
+      </footer>
 
     </div>
   );
